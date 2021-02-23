@@ -1,0 +1,14 @@
+<header>
+    <span *ngIf="params.showTotals()">
+        Showing
+        <strong>
+            {{params.getPageNumber()}} - 
+            {{params.getPageNumber2()}}
+        </strong> of 
+        <strong>{{params.totalCount}}</strong> 
+        Results
+    </span>
+    <span *ngIf="params.showEmptyMessage()">
+        There are <strong>0</strong> results from this filter
+    </span>
+</header>
