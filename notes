@@ -1,0 +1,57 @@
+SET PATH=%PATH%;C:\CodeRoot\Tools\Git\bin;C:\CodeRoot\Tools\node-v14;
+SET PATH=%PATH%;C:\CodeRoot\Tools\VSCode\bin;
+
+DotNet Core 3.1
+Postman
+Visual Studio For Code
+git
+Addins on VSCode
+c#                        -> Microsoft
+c# Extensions             -> jchannon
+material icon theme       -> Philipp Kief 
+NuGet Package Manager     -> jmrog
+sqlite                    -> alexcvzz
+Angular Language Service  -> Angular
+Angular Snippets          -> John Papa
+Prettier - Code formatter -> Esben
+Bracket Pair Colorizer 2  -> Coen Rad
+TSLint                    -> Microsoft
+
+
+dotnet --info                                                  <- information about versions installed
+dotnet tool install --global dotnet-ef  --version 2.1.511      <- install Entity Framework using SDK version
+dotnet ef -h                                                   <- help for Entity Framenwork
+dotnet ef migrations add InitialCreate -o Data/Migrations      <- Initial Creation of the database
+dotnet ef database -h                                          <- help for Entity Framenwork databases
+dotnet ef database update                                      <- Update database
+dotnet new -h                                                  <- help for new command
+dotnet new classlib -o Core                                    <- Create a new ClassLibrary called Core
+dotnet sln add Core                                            <- Add new project in the solution
+dotnet add reference path                                      <- Add reference in a project 
+
+dotnet ef database drop -p Infrastructure -s API               <- Drop Database
+dotnet ef migrations remove -p Infrastructure -s API           <- Remove Migrations
+
+First Time
+git init                                                       <- Initialize GIT in this solution
+git add .                                                      <- Add untracked files to commit
+git commit -m "Initial Commit"                                 <- Commit the changes in the solution, "m" is the message for this commit
+git remote add origin https://github.com/alfonso-fm/skinet.git <- Add the remote repository
+git push -u origin master                                      <- Upload files in the remote repository
+
+Save changes
+git add .                                                      <- Add untracked files to commit
+git commit -m "End Of section 3"                               <- Commit the changes in the solution, "m" is the message for this commit
+git push -u origin master                                      <- Upload files in the remote repository
+
+npm -g install @angular/cli                                    <- install angular, Would it be installed Node.js
+ng new client                                                  <- Generate a new angular app in the solution
+ng serve                                                       <- Execute the application
+ng add ngx-bootstrap                                           <- install bootstrap
+ng g m core                                                    <- create a new module in client it's name is "core"
+ng g c shop --flat --skip-tests                                <- create a new component in shop's folder without tests
+ng g s shop --skip-tests --flat                                <- create a new service in shop's folder without tests
+
+npm install --save xng-breadcrumb
+npm install bootswatch
+npm install ngx-spinner
