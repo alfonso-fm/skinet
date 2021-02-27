@@ -15,7 +15,7 @@ namespace API
 {
     public class Program
     {
-        public static void Main(string[] args)
+        public static async Task Main(string[] args)
         {
             var host = CreateWebHostBuilder(args).Build();
             using(var scope = host.Services.CreateScope())
@@ -25,8 +25,8 @@ namespace API
                 try
                 {
                     var context = services.GetRequiredService<StoreContext>();
-                    context.Database.MigrateAsync();
-                    StoreContextSeed.SeedAsync(context, loggerFactory); 
+                    await context.Database.MigrateAsync();
+                    await StoreContextSeed.SeedAsync(context, loggerFactory); 
                 }
                 catch(Exception ex)
                 {
