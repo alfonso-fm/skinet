@@ -55,3 +55,6 @@ ng g s shop --skip-tests --flat                                <- create a new s
 npm install --save xng-breadcrumb
 npm install bootswatch
 npm install ngx-spinner
+
+redis-server
+redis-cli
