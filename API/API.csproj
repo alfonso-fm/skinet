@@ -11,7 +11,9 @@
     <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="6.0.2"/>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite.Core" Version="5.0.3"/>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.3"/>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.3"/>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="5.0.3"/>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.12"/>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Infrastructure\Infrastructure.csproj"/>

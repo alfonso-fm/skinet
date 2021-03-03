@@ -32,6 +32,9 @@ dotnet add reference path                                      <- Add reference 
 dotnet ef database drop -p Infrastructure -s API               <- Drop Database
 dotnet ef migrations remove -p Infrastructure -s API           <- Remove Migrations
 
+dotnet ef migrations add IdentityInitial -p Infraestructure -s API -o Identity/Migrations -c AppIdentityDbContext
+
+
 First Time
 git init                                                       <- Initialize GIT in this solution
 git add .                                                      <- Add untracked files to commit
