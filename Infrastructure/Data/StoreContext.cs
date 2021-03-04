@@ -18,7 +18,7 @@ namespace Infrastructure.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            // modelBuilder.ApplyConfigurationFromAssembly(Assembly.GetExecutingAssembly());
+            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
             if(Database.ProviderName == "Microsoft.EntityFrameworkCore.Sqlite" )
             {
                 foreach(var entityType in modelBuilder.Model.GetEntityTypes())
