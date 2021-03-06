@@ -32,7 +32,8 @@ dotnet add reference path                                      <- Add reference 
 dotnet ef database drop -p Infrastructure -s API               <- Drop Database
 dotnet ef migrations remove -p Infrastructure -s API           <- Remove Migrations
 
-dotnet ef migrations add IdentityInitial -p Infraestructure -s API -o Identity/Migrations -c AppIdentityDbContext
+dotnet ef migrations add IdentityInitial -p Infrastructure -s API -o Identity/Migrations -c AppIdentityDbContext
+dotnet ef migrations add InitialCreate -p Infrastructure -s API -o Data/Migrations -c StoreContext
 
 
 First Time
@@ -63,3 +64,6 @@ redis-server
 redis-cli
 
 https://regexlib.com/
+http://www.jsontots.com/
+https://getbootstrap.com/docs/4.4/examples/
+https://valor-software.com/ngx-bootstrap/
