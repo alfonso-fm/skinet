@@ -59,6 +59,7 @@ ng g s shop --skip-tests --flat                                <- create a new s
 npm install --save xng-breadcrumb
 npm install bootswatch
 npm install ngx-spinner
+ng add @angular/cdk
 
 redis-server
 redis-cli

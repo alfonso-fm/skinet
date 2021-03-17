@@ -4,6 +4,7 @@ import { BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { Basket, IBasket, IBasketItem, IBasketTotals } from '../shared/models/basket';
+import { IDeliveryMethod } from '../shared/models/deliverymethod';
 import { IProduct } from '../shared/models/product';
 
 @Injectable({
@@ -15,9 +16,12 @@ export class BasketService {
   private basketTotalSource = new BehaviorSubject<IBasketTotals>(null);
   basket$ = this.basketSource.asObservable();
   basketTotal$ = this.basketTotalSource.asObservable();
-
+  shipping = 0;
   constructor(private http: HttpClient) {}
-
+  setShippingPrice(deliveryMethod: IDeliveryMethod): void{
+    this.shipping = deliveryMethod.price;
+    this.calculateTotals();
+  }
   // tslint:disable-next-line: typedef
   getBasket(id: string){
     return this.http.get(this.baseUrl + 'basket?id=' + id)
@@ -30,6 +34,7 @@ export class BasketService {
   }
   // tslint:disable-next-line: typedef
   setBasket(basket: IBasket){
+    // tslint:disable-next-line: deprecation
     return this.http.post(this.baseUrl + 'basket', basket).subscribe(
       (response: IBasket) => {
         this.basketSource.next(response);
@@ -41,8 +46,7 @@ export class BasketService {
     );
   }
 
-  // tslint:disable-next-line: typedef
-  getCurrentBasketValue(){
+  getCurrentBasketValue(): IBasket{
     return this.basketSource.value;
   }
 
@@ -78,8 +82,14 @@ export class BasketService {
       }
     }
   }
+  deleteLocalBasket(id: string): void{
+    this.basketSource.next(null);
+    this.basketTotalSource.next(null);
+    localStorage.removeItem('basket_id');
+  }
   // tslint:disable-next-line: typedef
   deleteBasket(basket: IBasket) {
+    // tslint:disable-next-line: deprecation
     return this.http.delete(this.baseUrl + 'basket?id=' + basket.id).subscribe(
       () => {
         this.basketSource.next(null);
@@ -101,7 +111,7 @@ export class BasketService {
   // tslint:disable-next-line: typedef
   private calculateTotals(){
     const basket = this.getCurrentBasketValue();
-    const shipping = 0;
+    const shipping = this.shipping;
     const subtotal = basket.items.reduce((a, b) => (b.price * b.quantity) + a, 0);
     const total = subtotal + shipping;
     this. basketTotalSource.next({shipping, total, subtotal});
