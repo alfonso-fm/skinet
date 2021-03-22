@@ -34,6 +34,7 @@ export class ShopComponent implements OnInit {
 
   // tslint:disable-next-line: typedef
   getProducts(){
+    // tslint:disable-next-line: deprecation
     this.shopService.getProducts(this.shopParams).subscribe(
       response => {
         this.products = response.data;
@@ -46,6 +47,7 @@ export class ShopComponent implements OnInit {
   }
   // tslint:disable-next-line: typedef
   getBrands(){
+    // tslint:disable-next-line: deprecation
     this.shopService.getBrands().subscribe(
       response => { this.brands = [{id: 0, name: 'All'}, ...response]; },
       error => { console.log(error); }
@@ -53,6 +55,7 @@ export class ShopComponent implements OnInit {
   }
   // tslint:disable-next-line: typedef
   getTypes(){
+    // tslint:disable-next-line: deprecation
     this.shopService.getTypes().subscribe(
       response => { this.types = [{id: 0, name: 'All'}, ...response]; },
       error => { console.log(error); }

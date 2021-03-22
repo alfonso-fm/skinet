@@ -7,24 +7,26 @@ import { IType } from '../shared/models/productType';
 import { delay, map } from 'rxjs/operators';
 import { ShopParams } from '../shared/models/shopParams';
 import { IProduct } from '../shared/models/product';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ShopService {
-  baseUrl = 'https://localhost:5004/api/';
-
+  // baseUrl = 'https://localhost:5004/api/';
+  baseUrl = environment.apiURl;
   constructor(private http: HttpClient) { }
 
   // tslint:disable-next-line: typedef
   getProducts(shopParams: ShopParams){
-    let params: HttpParams = shopParams.getParams();
+    const params: HttpParams = shopParams.getParams();
     return this.http.get<IPagination>(this.baseUrl + 'products', {observe: 'response', params})
     .pipe(
       delay(1000),
       map( response => response.body )
     );
   }
+  // tslint:disable-next-line: typedef
   getProduct(id: number){
     return this.http.get<IProduct>(this.baseUrl + 'products/' + id);
   }
