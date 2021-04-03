@@ -64,6 +64,10 @@ ng add @angular/cdk
 redis-server
 redis-cli
 
+stripe login
+stripe listen
+stripe listen -f https://localhost:5004/api/payments/webhook
+
 https://regexlib.com/
 http://www.jsontots.com/
 https://getbootstrap.com/docs/4.4/examples/

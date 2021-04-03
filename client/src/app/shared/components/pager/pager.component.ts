@@ -8,6 +8,7 @@ import { ShopParams } from '../../models/shopParams';
 })
 export class PagerComponent implements OnInit {
   @Input() params: ShopParams;
+  @Input() pageNumber: number;
   @Output() pageChanged = new EventEmitter<number>();
   constructor() { }
 

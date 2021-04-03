@@ -9,7 +9,7 @@ import { HomeModule } from './home/home.module';
 import { ErrorInterceptor} from './core/interceptors/error.interceptor';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxSpinnerModule } from 'ngx-spinner';
-import { LoadingInterceptor } from './core/interceptors/loader.interceptors';
+import { LoadingInterceptor } from './core/interceptors/loading.interceptors';
 import { JwtInterceptor } from './core/interceptors/jwt.interceptor';
 
 @NgModule({
